@@ -81,7 +81,9 @@ class _CameraPageState extends State<CameraPage> {
       ),
       floatingActionButton: (imagem != null)
           ? FloatingActionButton.extended(
-              onPressed: () => Navigator.pop(context),
+              onPressed: () => Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => CameraPage()),
+                  ),
               label: const Text('Finalizar'))
           : null,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
