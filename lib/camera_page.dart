@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
+import 'package:flutter/services.dart';
 
 class CameraPage extends StatefulWidget {
   const CameraPage({super.key});
@@ -20,6 +21,7 @@ class _CameraPageState extends State<CameraPage> {
   void initState() {
     super.initState();
     _loadCameras();
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   }
 
   _loadCameras() async {
