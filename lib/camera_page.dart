@@ -72,7 +72,7 @@ class _CameraPageState extends State<CameraPage> {
         elevation: 0,
       ),
       body: Container(
-        color: Colors.grey[900],
+        color: Colors.blue[900],
         child: Center(
           child: _arquivoWidget(),
         ),
@@ -88,8 +88,6 @@ class _CameraPageState extends State<CameraPage> {
 
   _arquivoWidget() {
     return SizedBox(
-      width: size!.width - 50,
-      height: size!.height - (size!.height / 3),
       child: imagem == null
           ? _cameraPreviewWidget()
           : Image.file(
