@@ -75,8 +75,29 @@ class _CameraPageState extends State<CameraPage> {
       ),
       body: Container(
         color: Colors.blue[900],
-        child: Center(
-          child: _arquivoWidget(),
+        child: Stack(
+          children: [
+            // Topo da pilha é no final do widget Stack()
+            Center(
+              child: _arquivoWidget(),
+            ),
+            Align(
+              alignment: Alignment.center,
+              child: Container(
+                width: double.infinity,
+                height: 2,
+                color: Colors.blue[900],
+              ),
+            ),
+            Align(
+              alignment: Alignment.center,
+              child: Container(
+                width: 2,
+                height: double.infinity,
+                color: Colors.blue[900],
+              ),
+            ),
+          ],
         ),
       ),
       floatingActionButton: (imagem != null)
