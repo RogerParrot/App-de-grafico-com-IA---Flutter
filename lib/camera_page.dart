@@ -1,8 +1,10 @@
 import 'dart:io';
 
+import 'package:app_teste/main.dart';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class CameraPage extends StatefulWidget {
   const CameraPage({super.key});
@@ -74,38 +76,72 @@ class _CameraPageState extends State<CameraPage> {
         elevation: 0,
       ),
       body: Container(
-        color: Colors.blue[900],
-        child: Stack(
-          children: [
-            // Topo da pilha é no final do widget Stack()
-            Center(
-              child: _arquivoWidget(),
-            ),
-            Align(
-              alignment: Alignment.center,
-              child: Container(
-                width: double.infinity,
-                height: 2,
-                color: Colors.blue[900],
+          color: Colors.blue[900],
+          child: Stack(
+            children: [
+              // Topo da pilha é no final do widget Stack()
+              Center(
+                child: _arquivoWidget(),
               ),
-            ),
-            Align(
-              alignment: Alignment.center,
-              child: Container(
-                width: 2,
-                height: double.infinity,
-                color: Colors.blue[900],
-              ),
-            ),
-          ],
-        ),
-      ),
+              Align(
+                alignment: Alignment.center,
+                child: Container(
+                  width: double.infinity,
+                  height: 2,
+                  color: Colors.blue[900],
+                ),
+              )
+                  .animate(onPlay: (controller) => controller.repeat())
+                  .fadeIn(duration: 500.ms)
+                  .then()
+                  .fadeOut(duration: 500.ms),
+              Align(
+                alignment: Alignment.center,
+                child: Container(
+                  width: size!.width * 0.3,
+                  height: 4,
+                  color: Colors.blue[900],
+                ),
+              )
+                  .animate(onPlay: (controller) => controller.repeat())
+                  .fadeIn(duration: 500.ms)
+                  .then()
+                  .fadeOut(duration: 500.ms),
+              Align(
+                alignment: Alignment.center,
+                child: Container(
+                  width: 2,
+                  height: double.infinity,
+                  color: Colors.blue[900],
+                ),
+              )
+                  .animate(onPlay: (controller) => controller.repeat())
+                  .fadeIn(duration: 500.ms)
+                  .then()
+                  .fadeOut(duration: 500.ms),
+              Align(
+                alignment: Alignment.center,
+                child: Container(
+                  width: 4,
+                  height: size!.width * 0.3,
+                  color: Colors.blue[900],
+                ),
+              )
+                  .animate(onPlay: (controller) => controller.repeat())
+                  .fadeIn(duration: 500.ms)
+                  .then()
+                  .fadeOut(duration: 500.ms),
+            ],
+          )),
       floatingActionButton: (imagem != null)
-          ? FloatingActionButton.extended(
-              onPressed: () => Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => CameraPage()),
-                  ),
-              label: const Text('Finalizar'))
+          ? Padding(
+              padding: const EdgeInsets.only(bottom: 24),
+              child: FloatingActionButton.extended(
+                  onPressed: () => Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                            builder: (context) => const CameraPage()),
+                      ),
+                  label: const Text('Finalizar')))
           : null,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
