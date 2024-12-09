@@ -68,6 +68,21 @@ class _CameraPageState extends State<CameraPage> {
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
 
+    Widget _animatedLine(width_, height_) {
+      return Align(
+        alignment: Alignment.center,
+        child: Container(
+          width: width_,
+          height: height_,
+          color: Colors.blue[900],
+        ),
+      )
+          .animate(onPlay: (controller) => controller.repeat())
+          .fadeIn(duration: 500.ms)
+          .then()
+          .fadeOut(duration: 500.ms);
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Gráfico de IA'),
@@ -83,54 +98,10 @@ class _CameraPageState extends State<CameraPage> {
               Center(
                 child: _arquivoWidget(),
               ),
-              Align(
-                alignment: Alignment.center,
-                child: Container(
-                  width: double.infinity,
-                  height: 2,
-                  color: Colors.blue[900],
-                ),
-              )
-                  .animate(onPlay: (controller) => controller.repeat())
-                  .fadeIn(duration: 500.ms)
-                  .then()
-                  .fadeOut(duration: 500.ms),
-              Align(
-                alignment: Alignment.center,
-                child: Container(
-                  width: size!.width * 0.3,
-                  height: 4,
-                  color: Colors.blue[900],
-                ),
-              )
-                  .animate(onPlay: (controller) => controller.repeat())
-                  .fadeIn(duration: 500.ms)
-                  .then()
-                  .fadeOut(duration: 500.ms),
-              Align(
-                alignment: Alignment.center,
-                child: Container(
-                  width: 2,
-                  height: double.infinity,
-                  color: Colors.blue[900],
-                ),
-              )
-                  .animate(onPlay: (controller) => controller.repeat())
-                  .fadeIn(duration: 500.ms)
-                  .then()
-                  .fadeOut(duration: 500.ms),
-              Align(
-                alignment: Alignment.center,
-                child: Container(
-                  width: 4,
-                  height: size!.width * 0.3,
-                  color: Colors.blue[900],
-                ),
-              )
-                  .animate(onPlay: (controller) => controller.repeat())
-                  .fadeIn(duration: 500.ms)
-                  .then()
-                  .fadeOut(duration: 500.ms),
+              _animatedLine(double.infinity, 2),
+              _animatedLine(size!.width * 0.3, 4),
+              _animatedLine(2, double.infinity),
+              _animatedLine(4, size!.width * 0.3),
             ],
           )),
       floatingActionButton: (imagem != null)
