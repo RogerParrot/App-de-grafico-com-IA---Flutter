@@ -68,7 +68,7 @@ class _CameraPageState extends State<CameraPage> {
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
 
-    Widget _animatedLine(width_, height_) {
+    Widget _animatedLine(double width_, double height_) {
       return Align(
         alignment: Alignment.center,
         child: Container(
