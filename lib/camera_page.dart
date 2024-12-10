@@ -101,7 +101,7 @@ class _CameraPageState extends State<CameraPage> {
               _animatedLine(double.infinity, 2),
               _animatedLine(size!.width * 0.3, 4),
               _animatedLine(2, double.infinity),
-              _animatedLine(4, size!.width * 0.3),
+              _animatedLine(4, size!.height * 0.3),
             ],
           )),
       floatingActionButton: (imagem != null)
