@@ -98,10 +98,17 @@ class _CameraPageState extends State<CameraPage> {
               Center(
                 child: _arquivoWidget(),
               ),
+<<<<<<< HEAD
               animatedLine(double.infinity, 2),
               animatedLine(size!.width * 0.3, 4),
               animatedLine(2, double.infinity),
               animatedLine(4, size!.width * 0.3),
+=======
+              _animatedLine(double.infinity, 2),
+              _animatedLine(size!.width * 0.3, 4),
+              _animatedLine(2, double.infinity),
+              _animatedLine(4, size!.height * 0.3),
+>>>>>>> 879fd1a214095b2dda68f0be412c5de0badb53d5
             ],
           )),
       floatingActionButton: (imagem != null)
