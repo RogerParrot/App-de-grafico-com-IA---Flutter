@@ -68,7 +68,7 @@ class _CameraPageState extends State<CameraPage> {
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
 
-    Widget _animatedLine(double width_, double height_) {
+    Widget animatedLine(double width_, double height_) {
       return Align(
         alignment: Alignment.center,
         child: Container(
@@ -98,10 +98,10 @@ class _CameraPageState extends State<CameraPage> {
               Center(
                 child: _arquivoWidget(),
               ),
-              _animatedLine(double.infinity, 2),
-              _animatedLine(size!.width * 0.3, 4),
-              _animatedLine(2, double.infinity),
-              _animatedLine(4, size!.width * 0.3),
+              animatedLine(double.infinity, 2),
+              animatedLine(size!.width * 0.3, 4),
+              animatedLine(2, double.infinity),
+              animatedLine(4, size!.width * 0.3),
             ],
           )),
       floatingActionButton: (imagem != null)
